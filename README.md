@@ -1,21 +1,52 @@
 # 🎮 Valdoria
 
-Valdoria é um RPG 2D top-down com combate em tempo real, sistema de classes e exploração em um mundo corrompido.
+Valdoria é um jogo desenvolvido na Godot focado em exploração, combate e progressão de personagem.
 
-## 🌍 História
-O continente de Valdoria é dividido entre reinos antigos que dominam o poder do Coração Arcano. Uma corrupção começou a se espalhar, ameaçando todo o equilíbrio do mundo.
+---
 
-## ⚔️ Classes
-- 🧙 Mago
-- 🛡️ Tank
-- 💚 Healer
+## 🚀 Como rodar o projeto
 
-## 🧠 Sistemas
-- Combate em tempo real
-- IA de monstros (Idle, Chase, Attack)
-- Pathfinding com A*
-- Sistema de inventário
-- NPCs e quests
+1. Instale a Godot Engine
+2. Abra o projeto pelo arquivo:
+   project.godot
+3. Clique em "Run"
 
-## 🚧 Status
-Em desenvolvimento 🚀
+---
+
+## 🎮 Controles
+
+- WASD / Setas: Movimentação
+- Clique/Q : Ataque
+
+---
+
+## 🧩 Estrutura do projeto
+
+- scenes/ → Cenas do jogo
+- scripts/ → Lógica do jogo
+- assets/ → Imagens, sons e recursos
+
+---
+
+## 🛠 Tecnologias
+
+- Godot Engine
+- GDScript
+
+---
+
+## 📌 Status do projeto
+
+🚧 Em desenvolvimento
+
+---
+
+## 👤 Autor
+
+Desenvolvido por: Luiz Gustavo, Matheus Cordeiro, Sanelva Antonio
+
+---
+
+## 📄 Licença
+
+Este projeto é para fins educacionais.
