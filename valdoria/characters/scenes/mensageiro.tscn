@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://fnd18ghvpjy7"]
+
+[ext_resource type="Texture2D" uid="uid://cnb03upu81ew6" path="res://characters/assets/npc.png" id="1_1uohk"]
+[ext_resource type="Script" uid="uid://bkrqhha34pok0" path="res://characters/scripts/mensageiro.gd" id="1_5vlwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vlwe"]
+size = Vector2(80, 118.99999)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uujxu"]
+radius = 131.13731
+
+[sub_resource type="LabelSettings" id="LabelSettings_tn5v6"]
+
+[node name="Mensageiro" type="CharacterBody2D" unique_id=23328996]
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_5vlwe")
+
+[node name="Texture" type="Sprite2D" parent="." unique_id=362219734]
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=774963963]
+position = Vector2(2.9802318e-06, 9.499999)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_5vlwe")
+
+[node name="Npc" type="Sprite2D" parent="." unique_id=1750926626]
+position = Vector2(6, 5)
+texture = ExtResource("1_1uohk")
+hframes = 2
+
+[node name="ChatDetection" type="Area2D" parent="." unique_id=423176267]
+z_index = 5
+
+[node name="Collision" type="CollisionShape2D" parent="ChatDetection" unique_id=116546286]
+position = Vector2(-1, 14)
+shape = SubResource("CircleShape2D_uujxu")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=288736890]
+z_index = 10
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasGroup" unique_id=971437464]
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="CanvasGroup" unique_id=1094527817]
+offset_left = -180.0
+offset_top = -130.0
+offset_right = 189.99994
+offset_bottom = -28.999985
+theme_override_font_sizes/font_size = 45
+text = "Sabia que o Slime Assassino não tem órgãos? 
+Ele é basicamente um estômago gigante 
+com sede de sangue. Fascinante, não?
+"
+label_settings = SubResource("LabelSettings_tn5v6")
+
+[connection signal="body_entered" from="ChatDetection" to="." method="_on_chat_detection_body_entered"]
