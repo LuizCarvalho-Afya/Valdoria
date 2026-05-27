@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cfymcghq2pti0"]
+
+[ext_resource type="Script" uid="uid://ddc1hvyv47byq" path="res://characters/scripts/drop_item.gd" id="1_qq0on"]
+[ext_resource type="Texture2D" uid="uid://cxd6hivygtcjb" path="res://characters/assets/slime_gel.png" id="2_g2jin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq0on"]
+size = Vector2(10, 8)
+
+[node name="Area2D" type="Area2D" unique_id=1440994076]
+script = ExtResource("1_qq0on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=840297681]
+shape = SubResource("RectangleShape2D_qq0on")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=76526906]
+position = Vector2(5.9604645e-08, 0)
+scale = Vector2(0.42, 0.38)
+texture = ExtResource("2_g2jin")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
