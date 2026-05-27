@@ -1,0 +1,107 @@
+ALTERAÇÃO FEITA PARA A ATIVIDADE DE HASHMAP / HASH TABLE
+
+O inventário agora usa Dictionary do Godot como estrutura principal.
+No Godot, Dictionary funciona como uma HashMap, pois armazena dados por chave e permite acesso rápido usando essa chave.
+
+Arquivo principal alterado:
+characters/scripts/inventario.gd
+
+Estrutura principal:
+var inventario: Dictionary = {}
+
+Formato dos dados:
+inventario = {
+    "slime_gel": {
+        "id": "slime_gel",
+        "nome": "Gel de Slime",
+        "quantidade": 3,
+        "textura": Texture2D
+    }
+}
+
+O ID do item é a chave única da HashMap.
+Os slots visuais do inventário não são a estrutura principal. Eles apenas mostram na tela o que está dentro da HashMap.
+
+Também existe a variável ordem_slots, mas ela serve apenas para guardar a posição VISUAL dos itens nos slots. Ela não armazena os dados principais do inventário. Os dados principais continuam centralizados na HashMap inventario.
+
+Funcionalidades implementadas:
+
+1. Adicionar item
+Função:
+adicionar_item(item_id, nome_item, textura, quantidade)
+
+Se o item já existir, soma a quantidade.
+Se o item não existir, cria um novo registro na HashMap.
+
+2. Consultar por ID
+Função:
+consultar_por_id(item_id)
+
+Busca diretamente pela chave da HashMap.
+
+3. Consultar por nome
+Função:
+consultar_por_nome(nome_item)
+
+Permite encontrar o item pelo nome.
+
+4. Exibir inventário
+Função:
+exibir_inventario()
+
+Lista todos os itens existentes no inventário.
+
+5. Remover quantidade específica
+Função:
+remover_item(item_id, quantidade)
+
+Remove uma quantidade do item.
+Se a quantidade chegar a zero, apaga o item da HashMap.
+
+6. Remover item completo
+Função:
+remover_item_completo(item_id)
+
+Remove o item inteiro do inventário.
+
+7. Mover item entre slots
+Função:
+mover_item_para_slot(item_id, indice_destino)
+
+Como testar no jogo:
+- Abra o inventário com a tecla E.
+- Clique e segure em um item.
+- Arraste para outro slot do inventário.
+- Solte o mouse.
+
+Se o slot de destino estiver vazio, o item vai para ele.
+Se o slot de destino tiver outro item, os dois trocam de posição.
+Essa troca muda apenas a posição visual dos slots; a HashMap continua sendo a estrutura principal dos dados.
+
+8. Descartar item como drop no chão
+Função:
+descartar_item_arrastado(dados, posicao_mouse_tela)
+
+Como testar no jogo:
+- Abra o inventário com a tecla E.
+- Clique e segure em um item.
+- Arraste o item para fora do painel do inventário.
+- Solte o mouse.
+
+Quando o item é solto fora do inventário:
+- ele é removido da HashMap principal;
+- uma cena drop_item.tscn é criada no chão perto do personagem;
+- se o personagem encostar no drop, o item volta para o inventário.
+
+9. Demonstração para o professor
+Função:
+demonstrar_funcoes_professor()
+
+Essa função mostra em código as operações principais pedidas na atividade.
+Ela não é chamada automaticamente para não alterar o comportamento normal do jogo.
+
+Arquivos alterados:
+- characters/scripts/inventario.gd
+- characters/scripts/character.gd
+- characters/scripts/drop_item.gd
+- characters/scripts/slot.gd

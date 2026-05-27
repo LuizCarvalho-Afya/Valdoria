@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c76ctxiebuj48"]
+
+[ext_resource type="Script" uid="uid://ce00u4hyysqib" path="res://characters/scripts/slime_spawner.gd" id="1_csh8g"]
+[ext_resource type="PackedScene" uid="uid://deota7lrn2o83" path="res://characters/scenes/slime.tscn" id="2_q4r0j"]
+
+[node name="SlimeSpawner" type="Node2D" unique_id=316684164]
+script = ExtResource("1_csh8g")
+slime_scene = ExtResource("2_q4r0j")
+respawn_time = 5.0
+spawn_on_ready = true
